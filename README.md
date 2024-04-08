@@ -6,7 +6,7 @@
 2. **front/**   <br>
     - The front end (html files)
 3. **back/**<br>
-    - The back end  (php files)
+    - The back end  (php files, sql queries)
 
 
 <br>
