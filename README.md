@@ -1,11 +1,11 @@
 # potential-potato
 
 ## Folder Structure:
-1. **msc/** <br>
-    - This houses images, sounds. Mainly where files from front end lies
-2. **front/**   <br>
+1. **front/**   <br>
+    - **msc/** <br>
+        - This houses images, sounds. Mainly where files from front end lies
     - The front end (html files)
-3. **back/**<br>
+2. **back/**<br>
     - The back end  (php files, sql queries)
 
 
