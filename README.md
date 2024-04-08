@@ -1,6 +1,7 @@
 # potential-potato
-yay
 
+as a collaborator, do:
+`git checkout unfinished`   -- use the branch 'unfinished' 
 
 
 
