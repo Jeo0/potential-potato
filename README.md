@@ -4,7 +4,7 @@
 - **msc/**
     _ This houses images, sounds. Mainly where files from front end lies
 - **front/**
-    _ The front end (html)
+    _ The front end (html files)
 - **back/**
     _ the back end  (php files)
 
