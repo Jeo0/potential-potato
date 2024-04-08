@@ -2,11 +2,11 @@
 
 ## Folder Structure:
 1. **msc/** <br>
-    This houses images, sounds. Mainly where files from front end lies
+    - This houses images, sounds. Mainly where files from front end lies
 2. **front/**   <br>
-    The front end (html files)
+    - The front end (html files)
 3. **back/**<br>
-    The back end  (php files)
+    - The back end  (php files)
 
 
 as a collaborator, do:                                          
