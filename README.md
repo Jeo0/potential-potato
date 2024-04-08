@@ -7,6 +7,8 @@
     - The front end (html files)
 2. **back/**<br>
     - The back end  (php files, sql queries)
+3. **proj_updates/**    <br>
+    - Updating the 
 
 
 <br>

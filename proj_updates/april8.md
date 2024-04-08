@@ -60,8 +60,7 @@ Workflow update:
 
 
 TODOs:
-- Make a ppt 
-    * show the tables' specifics (with example data)
-    * show the details and the reasons between the relationship of the tables (show what things can be shown in front end as a student, and an employee -- i.e., how the subject site will be shown as an instructor, or a student; how the establishment database will be interfaced to an admin employee when there is another building or some changes to the purpose of a room)
+- show the tables' specifics (with example data)
+- show the details and the reasons between the relationship of the tables (show what things can be shown in front end as a student, and an employee -- i.e., how the subject site will be shown as an instructor, or a student; how the establishment database will be interfaced to an admin employee when there is another building or some changes to the purpose of a room)
 
 - Create a basic input, read, delete, and update for the tables indicated at the project details -- webpages similar to the latest CRUD lab activity
