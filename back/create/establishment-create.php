@@ -1,7 +1,13 @@
 <?php
+/*
 define('ROOT_PATH', dirname(__DIR__) . '/../../');	
 include(ROOT_PATH."back/config.php");
+ */
+// current loc @ uni/front/create fromt getcwd
+include "../../back/config.php";
 echo "back\n" . getcwd() . "\n";
+echo dirname(realpath(__FILE__));
+
 if (isset($_POST['submit']) ){
 	$building = $_POST['building_name'];
 	$floorNumber = $_POST['floor_number'];

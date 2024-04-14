@@ -1,7 +1,15 @@
 <?php 
 //include "../../back/create/establishment-create.php";
-define('ROOT_PATH', dirname(__DIR__) .'\\');	
-include(ROOT_PATH.'back\\create\\config.php'); 
+//define('ROOT_PATH', dirname(__DIR__) .'\\');	
+
+#$absolutePath = $_SERVER['DOCUMENT_ROOT'] . '../../back/create/config.php'
+#include $absolutePath;
+
+// current loc @ uni/front/create fromt getcwd
+include "../../back/create/establishment-create.php";
+echo getcwd();
+echo dirname(realpath(__FILE__));
+#include(ROOT_PATH.'back\\create\\config.php'); 
 // #echo "front\n". getcwd() . "\n";
 ?>
 
@@ -29,7 +37,9 @@ include(ROOT_PATH.'back\\create\\config.php');
 	</form>
 
 
-<a href="<?php echo ROOT_PATH.'front\\main_page.php' ?>">gobacktomainpage</a>
+
+<a href="../main_page.php">gobacktomainpage</a>
+<a href="../read/establishment-portal.php">go back to list view</a>
 
 </body>
 

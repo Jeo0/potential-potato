@@ -1,6 +1,11 @@
 <?php
+/*
 define('ROOT_PATH', dirname(__DIR__) . '/../../');	
 include(ROOT_PATH."back/read/establishment.php");
+ */
+// current loc @ uni/front/read_or_something
+echo dirname(realpath(__FILE__)) . "front me";
+include "../../back/read/establishment-portal.php";
 ?>
 
 
@@ -27,6 +32,7 @@ include(ROOT_PATH."back/read/establishment.php");
 			
 			<tbody>
 				<?php
+					//echo $result;
 					if ($result ->num_rows >0){
 						while($row = $result->fetch_assoc()){
 
@@ -35,10 +41,10 @@ include(ROOT_PATH."back/read/establishment.php");
 							<td><?php echo $row['bldg']; ?></td>
 							<td><?php echo $row['floor']; ?></td>
 							<td><?php echo $row['room #']; ?></td>
-							<td> <a class="btn btn-info" href="update/establishment-update.php?
+							<td> <a class="btn btn-info" href="../../back/update/establishment-update1.php?
 								id=<?php echo $row['room_id']; ?>">
 									Edit
-								</a>&nbsp;<a class="btn btn-danger" href="delete/establishment-delete.php?
+								</a>&nbsp;<a class="btn btn-danger" href="../delete/establishment-delete.php?
 								id=<?php echo $row['room_id'];		?>">
 									Delete
 								</a>
@@ -46,6 +52,7 @@ include(ROOT_PATH."back/read/establishment.php");
 							</tr>
 				<?php 	}
 					}	else{
+						echo "bruv, cant<br>";
 						header('Location: ../main_page.php');
 					}
 				?>
@@ -54,10 +61,12 @@ include(ROOT_PATH."back/read/establishment.php");
 		</table>
 
 	</div>
+<!-- current loc @ uni/front/read-->
+<a href="../main_page.php">goback to main page</a>
+<a href="../create/establishment-create.php">create new</a>
 </body>
 </html>
 
 
 
-<a href="../main_page.php">goback to main page</a>
 
