@@ -4,7 +4,6 @@ define('ROOT_PATH', dirname(__DIR__) .'\\');
 include(ROOT_PATH.'back\\config.php'); 
  */
 
-
 #$absolutePath = $_SERVER['DOCUMENT_ROOT'] . '../../back/create/config.php'
 #include $absolutePath;
 include "../back/config.php";

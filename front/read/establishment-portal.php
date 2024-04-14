@@ -41,7 +41,7 @@ include "../../back/read/establishment-portal.php";
 							<td><?php echo $row['bldg']; ?></td>
 							<td><?php echo $row['floor']; ?></td>
 							<td><?php echo $row['room #']; ?></td>
-							<td> <a class="btn btn-info" href="../../back/update/establishment-update1.php?
+							<td> <a class="btn btn-info" href="../../front/update/establishment-update.php?
 								id=<?php echo $row['room_id']; ?>">
 									Edit
 								</a>&nbsp;<a class="btn btn-danger" href="../delete/establishment-delete.php?
@@ -62,7 +62,7 @@ include "../../back/read/establishment-portal.php";
 
 	</div>
 <!-- current loc @ uni/front/read-->
-<a href="../main_page.php">goback to main page</a>
+<a href="../main_page.php">goback to main page</a><br>
 <a href="../create/establishment-create.php">create new</a>
 </body>
 </html>

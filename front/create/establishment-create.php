@@ -38,7 +38,7 @@ echo dirname(realpath(__FILE__));
 
 
 
-<a href="../main_page.php">gobacktomainpage</a>
+<a href="../main_page.php">gobacktomainpage</a><br>
 <a href="../read/establishment-portal.php">go back to list view</a>
 
 </body>
