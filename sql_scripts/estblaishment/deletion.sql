@@ -1,5 +1,5 @@
 DELETE FROM establishment_table
-WHERE establishmentid = 2;
+WHERE id_establishment = 2;
 
 -- after deletion, reset the autoincrement of the primary key to 1
 -- to prevent the duplication of rows

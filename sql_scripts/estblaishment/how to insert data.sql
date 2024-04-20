@@ -15,20 +15,20 @@ insert ignore into roomtype_table (roomtype)
 values ('lab'), ('lecture');
 
 -- Insert a new establishment into establishment_table
-INSERT INTO establishment_table (buildingid, roomtypeid, floornum, roomnum)
+INSERT INTO establishment_table (id_building, id_roomtype, floornum, roomnum)
 VALUES (
-	(SELECT buildingid FROM building_table WHERE buildingname = 'S'),
-	(SELECT roomtypeid FROM roomtype_table WHERE roomtype = 'canteen'),
+	(SELECT id_building FROM building_table WHERE buildingname = 'S'),
+	(SELECT id_roomtype FROM roomtype_table WHERE roomtype = 'canteen'),
 	0,
 	NULL
 ),(
-    (SELECT buildingid FROM building_table WHERE buildingname = 'S'),
-	(SELECT roomtypeid FROM roomtype_table WHERE roomtype = 'lab'),
+    (SELECT id_building FROM building_table WHERE buildingname = 'S'),
+	(SELECT id_roomtype FROM roomtype_table WHERE roomtype = 'lab'),
 	0,
 	0
 ),(
-	(SELECT buildingid FROM building_table WHERE buildingname = 'L'),
-	(SELECT roomtypeid FROM roomtype_table WHERE roomtype = 'lab'),
+	(SELECT id_building FROM building_table WHERE buildingname = 'L'),
+	(SELECT id_roomtype FROM roomtype_table WHERE roomtype = 'lab'),
     0,
     1
 );
@@ -36,3 +36,7 @@ VALUES (
     
 truncate table establishment_table;
 
+-- updating
+/*
+$sql = "UPDATE establishments_table SET floornum = ?, buildingid = ?, roomtypeid = ? WHERE establishment_id = ?";
+*/
