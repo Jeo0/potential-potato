@@ -2,25 +2,26 @@
 -- establishment 
 create database test1;
 use test1;
+-- drop database test1;
 
 create table building_table(
 	id_building	int primary key auto_increment,
-	buildingname varchar(10) unique
+	buildingname varchar(10) unique not null
 );
 
 create table roomtype_table(
 	id_roomtype	int primary key auto_increment,
-    roomtype	varchar(15) unique
+    roomtype	varchar(15) unique not null
     );
     
 create table establishment_table(
 	id_establishment int primary key auto_increment,
-	floornum 	int,
-	roomnum		int,
-    id_building	int,
-    id_roomtype	int,
-    constraint 	fk_buildingname	foreign key	(id_building)	references	building_table(id_building),
-    constraint 	fk_roomtype		foreign key	(id_roomtype)	references	roomtype_table(id_roomtype)
+	floornum 	int 	null,
+	roomnum		int		null,
+    id_building	int		not null,
+    id_roomtype	int		not null,
+    constraint 	fk_buildingname	foreign key	(id_building)	references	building_table(id_building)	,
+    constraint 	fk_roomtype		foreign key	(id_roomtype)	references	roomtype_table(id_roomtype) 
 );
 
 
@@ -38,7 +39,7 @@ create table section_table (
 	sectionname	char(5),
 
 	id_employee	int
-	-- constraint fk_section	foreign key (id_employee)	references	employee_info_table(id_employee)
+	-- constraint fk_section	foreign key (id_employee)	references	employee_info_table(id_employee) 
 
 );
 
@@ -48,8 +49,8 @@ create table timeandwhere_table(
 	time	time,
 	id_establishment	int,
 	id_section			int,
-	foreign key	(id_establishment)	references	establishment_table(id_establishment),
-	foreign key	(id_section)		references	section_table(id_section)
+	foreign key	(id_establishment)	references	establishment_table(id_establishment) ,
+	foreign key	(id_section)		references	section_table(id_section) 
 );
 
 -- lawrence, costa
@@ -59,7 +60,7 @@ CREATE TABLE department_table (
     id_department INT PRIMARY KEY,
     departmentname VARCHAR(255) NOT NULL,
     id_building INT,
-    foreign key	(id_building)	references	building_table(id_building)
+    foreign key	(id_building)	references	building_table(id_building) 
 );
 
 
@@ -86,8 +87,8 @@ CREATE TABLE employee_info_table (
 
     id_position INT,
     id_department INT,
-    -- constraint fk_employee	foreign key (id_employee)	references employee_info_table(id_employee);
-    FOREIGN KEY (id_department) REFERENCES `department_table`(id_department)
+    -- constraint fk_employee	foreign key (id_employee)	references employee_info_table(id_employee); 
+    FOREIGN KEY (id_department) REFERENCES `department_table`(id_department) 
 ); 
 
 create table student_table (
@@ -100,9 +101,9 @@ create table student_table (
 	id_course	int,
 	id_section	int,
 	id_birthday	int,
-	foreign key	(id_section)	references	section_table(id_section)
-	-- foreign key (id_course)		references 	courses_table(id_course)
-	-- foreign key (id_birthday)	references	student_birthday_table(id_birthday)
+	foreign key	(id_section)	references	section_table(id_section) 
+	-- foreign key (id_course)		references 	courses_table(id_course) 
+	-- foreign key (id_birthday)	references	student_birthday_table(id_birthday) 
 );
 
 
@@ -113,10 +114,10 @@ create table subjectinfo_table(
  	id_employee		int,
 	id_timeandwhere	int,
 	id_student		int,
-	foreign key	(id_subject)	references	subject_table(id_subject),
-	foreign key	(id_employee)	references employee_info_table(id_employee),
- 	foreign key (id_timeandwhere) 	references timeandwhere_table(id_timeandwhere),
- 	foreign key (id_student) 	references student_table(id_student)
+	foreign key	(id_subject)	references	subject_table(id_subject) ,
+	foreign key	(id_employee)	references employee_info_table(id_employee) ,
+ 	foreign key (id_timeandwhere) 	references timeandwhere_table(id_timeandwhere) ,
+ 	foreign key (id_student) 	references student_table(id_student) 
 
 );
  
@@ -135,7 +136,7 @@ create table student_name_table(
 	middlename	varchar(20)	not null,
 	lastname	varchar(20)	not null,
 
-	foreign key (id_student) 	references student_table(id_student)
+	foreign key (id_student) 	references student_table(id_student) 
 );
 
 create table student_birthday_table(
@@ -144,7 +145,7 @@ create table student_birthday_table(
 	age			int		not null,
 
 	id_student 	int,
-	foreign key (id_student) 	references student_table(id_student)
+	foreign key (id_student) 	references student_table(id_student) 
 );
 
 
@@ -152,18 +153,18 @@ create table student_birthday_table(
 
 
 alter table section_table
-add constraint fk_section	foreign key (id_employee)	references	employee_info_table(id_employee);
+add constraint fk_section	foreign key (id_employee)	references	employee_info_table(id_employee) ;
 alter table employee_position_table
-add constraint fk_employee	foreign key (id_employee)	references employee_info_table(id_employee);
+add constraint fk_employee	foreign key (id_employee)	references employee_info_table(id_employee) ;
 
 alter table employee_info_table
-add     FOREIGN KEY (id_position) REFERENCES `employee_position_table`(id_position);
+add     FOREIGN KEY (id_position) REFERENCES `employee_position_table`(id_position) ;
 
 alter table student_table
-add foreign key (id_birthday)	references	student_birthday_table(id_birthday);
+add foreign key (id_birthday)	references	student_birthday_table(id_birthday) ;
 
 alter table student_table
-add foreign key (id_course)		references 	courses_table(id_course)
+add foreign key (id_course)		references 	courses_table(id_course) ;
 
 
 

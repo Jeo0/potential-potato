@@ -41,9 +41,10 @@ if(isset($_GET['id'])){
 	if($result -> num_rows >0){
 		while($row = $result ->fetch_assoc()){
 			$floor_number 	= $row['floor'];
-			$what_id 		= $row['room_id'];
+			#$what_id 		= $row['room_id'];
 			$room_number 	= $row['room #'];
 			$buildingname 	= $row['bldg'];
+			echo "<br><br>inside get while loop <br>ID:" . $what_id . "<br><br>";
 		}
 	?>
 
