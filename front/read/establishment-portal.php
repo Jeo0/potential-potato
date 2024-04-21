@@ -4,7 +4,7 @@ define('ROOT_PATH', dirname(__DIR__) . '/../../');
 include(ROOT_PATH."back/read/establishment.php");
  */
 // current loc @ uni/front/read_or_something
-echo dirname(realpath(__FILE__)) . "front me";
+#echo dirname(realpath(__FILE__)) . "front me";
 include "../../back/read/establishment-portal.php";
 ?>
 
@@ -26,6 +26,7 @@ include "../../back/read/establishment-portal.php";
 				<th>Building</th>
 				<th>Floor</th>
 				<th>Room #</th>
+				<th>Room Type</th>
 				<th>mga actions</th>
 			</tr>
 			</thead>
@@ -38,22 +39,23 @@ include "../../back/read/establishment-portal.php";
 
 				?>
 							<tr>
-							<td><?php echo $row['bldg']; ?></td>
-							<td><?php echo $row['floor']; ?></td>
-							<td><?php echo $row['room #']; ?></td>
+							<td><?php echo $row['buildingname']; ?></td>
+							<td><?php echo $row['floornum']; ?></td>
+							<td><?php echo $row['roomnum']; ?></td>
+							<td><?php echo $row['roomtype']; ?></td>
 							<td> <a class="btn btn-info" href="../../front/update/establishment-update.php?
-								id=<?php echo $row['room_id']; ?>">
+								id=<?php echo $row['id_establishment']; ?>">
 									Edit
-								</a>&nbsp;<a class="btn btn-danger" href="../delete/establishment-delete.php?
-								id=<?php echo $row['room_id'];		?>">
+								</a>&nbsp;<a class="btn btn-danger" href="../delete/establishment-del.php?
+								id=<?php echo $row['id_establishment'];		?>">
 									Delete
 								</a>
 							</td>
 							</tr>
 				<?php 	}
 					}	else{
-						echo "bruv, cant<br>";
-						header('Location: ../main_page.php');
+						#echo "bruv, cant<br>";
+						header('Location: ../../main_page.php');
 					}
 				?>
 			</tbody>
@@ -62,7 +64,7 @@ include "../../back/read/establishment-portal.php";
 
 	</div>
 <!-- current loc @ uni/front/read-->
-<a href="../main_page.php">goback to main page</a><br>
+<a href="../../main_page.php">goback to main page</a><br>
 <a href="../create/establishment-create.php">create new</a>
 </body>
 </html>

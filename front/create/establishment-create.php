@@ -17,19 +17,23 @@ echo dirname(realpath(__FILE__));
 <!DOCTYPE html>
 <html>
 <body>
-	<h1>NoiceSign uup</h1>
+	<h1>Create new establishment</h1>
 	<form action="" method="POST">
 	<fieldset>
 		<legend>BUILDINGS :</legend>
 		Building name: <br>
-		<input type="text" name="building_name"> <br>
+		<input type="text" name="building_name" required> <br>
 
 		Floor #: <br>
-		<input type="text" name="floor_number"> <br>
+		<input type="text" name="floor_number" required> <br>
 		<!--<input type="radio" name="gender" value="me GiRl">Female-->
 
 		Room #: <br>
 		<input type="text" name="room_number"> <br>
+		<br> <br>
+
+		Room type: <br>
+		<input type="text" name="room_type" required> <br>
 		<br> <br>
 
 		<input type="submit" name="submit" value="submit">
@@ -38,7 +42,7 @@ echo dirname(realpath(__FILE__));
 
 
 
-<a href="../main_page.php">gobacktomainpage</a><br>
+<a href="../../main_page.php">gobacktomainpage</a><br>
 <a href="../read/establishment-portal.php">go back to list view</a>
 
 </body>
