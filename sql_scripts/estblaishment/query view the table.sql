@@ -6,3 +6,5 @@ JOIN roomtype_table r ON e.id_roomtype = r.id_roomtype;
 select * from building_table;
 select * from roomtype_table;
 select * from establishment_table;
+
+

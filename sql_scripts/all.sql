@@ -97,9 +97,11 @@ create table student_table (
 	sex			enum('M', 'F'),
 	phone		int	not null,
 
+	id_course	int,
 	id_section	int,
 	id_birthday	int,
 	foreign key	(id_section)	references	section_table(id_section)
+	-- foreign key (id_course)		references 	courses_table(id_course)
 	-- foreign key (id_birthday)	references	student_birthday_table(id_birthday)
 );
 
@@ -124,9 +126,7 @@ create table subjectinfo_table(
 
 create table courses_table(
 	id_course	int primary key	auto_increment,
-	coursename	varchar(30),
-	id_student	int,
-	foreign key	(id_student)	references	student_table(id_student)
+	coursename	varchar(30)
 
 );
 create table student_name_table(
@@ -161,6 +161,9 @@ add     FOREIGN KEY (id_position) REFERENCES `employee_position_table`(id_positi
 
 alter table student_table
 add foreign key (id_birthday)	references	student_birthday_table(id_birthday);
+
+alter table student_table
+add foreign key (id_course)		references 	courses_table(id_course)
 
 
 
