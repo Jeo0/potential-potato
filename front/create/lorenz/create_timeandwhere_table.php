@@ -24,6 +24,6 @@ include "../../../back/create/lorenz/timeandwhere.php";
 	 <input type="submit" name="submit" value="Submit">
   </fieldset>
 </form>
-<a href="../../read/student-portal.php">go back to student portal</a>
+<a href="../../read/subject-portal.php">go back to subject portal</a>
 </body>
 </html>

@@ -26,15 +26,16 @@ include "back/config.php";
 			<a href="front/create/employee-create.php">Create new</a><br>
 
 		Student:
-			<a href="front/read/student-portal.php">View List(exception)</a> <br>
-
-		Course:
-			<a href="front/read/course-portal.php">View List</a>&nbsp;
-			<a href="front/create/course-create.php">Create new</a><br>
+			<a href="front/read/student-portal.php">View List</a>&nbsp;
+			<a href="front/create/student-create.php">Create new</a><br>
 
 		Subject:
-			<a href="front/read/subject-portal.php">View List</a>&nbsp;
-			<a href="front/create/subject-create.php">Create new</a><br>
+			<a href="front/read/subject-portal.php">View List(exception)</a> <br>
+
+		Course table: 
+			<a href="front/read/lorenz/view_course_table.php">View List</a>&nbsp;
+			<a href="front/create/lorenz/create_course_table.php">Create new</a><br>
+
 		<br>
 </body>
 

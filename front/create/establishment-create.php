@@ -7,8 +7,8 @@
 
 // current loc @ uni/front/create fromt getcwd
 include "../../back/create/establishment-create.php";
-echo getcwd();
-echo dirname(realpath(__FILE__));
+//echo getcwd();
+//echo dirname(realpath(__FILE__));
 #include(ROOT_PATH.'back\\create\\config.php'); 
 // #echo "front\n". getcwd() . "\n";
 ?>

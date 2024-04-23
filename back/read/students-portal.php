@@ -1,13 +1,7 @@
 <?php
-include "../config.php";
-if(isset(madakfing ano ba yan))	{
+include "../../back/config.php";
+$sql = "SELECT * FROM studentsss
+		JOIN  bdayinfo";
 
-}
-do something 
-
-
-
-	if(something na value = admin){
-
-	}
+$result = $conn->query($sql);
 ?>

@@ -43,6 +43,6 @@ include "../../../back/read/lorenz/course.php";
 </table>
 	</div>
 </body>
-<a href="../student-portal.php">go back to student-portal</a><br>
+<a href="../../../main_page.php">go back to main_page</a><br>
 <a href="../../create/lorenz/create_course_table.php">create new course </a>
 </html>
