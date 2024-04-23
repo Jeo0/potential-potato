@@ -5,27 +5,27 @@ include "../../back/config.php";
 
 
 	// finding options for the building name dropdown menu
-	$sqlBuilding = "SELECT buildingname FROM building_table";
-	$resultBuilding = $conn->query($sqlBuilding);
-	$optionsBuilding = "";
+	$buildingQuery = "SELECT buildingname FROM building_table";
+	$resultBuilding = $conn->query($buildingQuery);
+	$bldg_ops = "";
 	if ($resultBuilding->num_rows > 0) {
 		while ($rowBuilding = $resultBuilding->fetch_assoc()) {
 			$buildingname = $rowBuilding['buildingname'];
-			$optionsBuilding .= "<option value='$buildingname'>$buildingname</option>";
+			$bldg_ops .= "<option value='$buildingname'>$buildingname</option>";
 		}
-	} else echo "emt bildings.";
+	} else echo "emt bildings.";	// will never be shown
 	
 
 	// also find option for the roomtype dropdown menu
-	$sqlRoomtype = "SELECT roomtype FROM roomtype_table";
-	$resultRoomType = $conn->query($sqlRoomtype);
-	$optionsRoomtype = "";
+	$roomtypeQuery = "SELECT roomtype FROM roomtype_table";
+	$resultRoomType = $conn->query($roomtypeQuery);
+	$roomtype_ops = "";
 	if ($resultRoomType->num_rows > 0) {
 		while ($rowRoomType = $resultRoomType->fetch_assoc()) {
 			$roomtype = $rowRoomType['roomtype'];
-			$optionsRoomtype .= "<option value='$roomtype'>$roomtype</option>";
+			$roomtype_ops .= "<option value='$roomtype'>$roomtype</option>";
 		}
-	} else echo "emt roomtypes";
+	} else echo "emt roomtypes";	// will never be shown 
 	
 
 
@@ -41,7 +41,7 @@ include "../../back/config.php";
 		//////////////////////////////
 		// just check if the input is valid and that there are inside the building_table and roomtype_table
 		/*
-		$isValid = false;
+		$isvalid = false;
 		$checkBuildingname = "select count(*) from `building_table`
 						where `id_building`	 = '$buildingname';";
 		$checkRoomtype = "select count(*) from `roomtype_table`
@@ -50,12 +50,12 @@ include "../../back/config.php";
 		if ($checkResult && $checkResult->num_rows > 0) {
 			$row = $checkResult->fetch_row();
 			$count = $row[0];
-			$isValid = ($count > 0);
+			$isvalid = ($count > 0);
 		}
 		//*/
 
 
-		// allow roomnum to be null
+		// allow roomnum & floornum to be null
 		$sql = "UPDATE `establishment_table` 
 				SET
 					`id_building` 	= (select id_building from building_table where buildingname = '$buildingname'),
@@ -113,7 +113,7 @@ JOIN roomtype_table r ON e.id_roomtype = r.id_roomtype
 		<fieldset>
 			<legend></legend>
 			Building name:<br>
-			<select name="building_name" required> <?php echo $optionsBuilding?> </select>
+			<select name="building_name" required> <?php echo $bldg_ops?> </select>
 			<!---
 				<input type="text" name="building_name" value="<?php// echo $buildingname; ?>" required> <br>
 			--->
@@ -126,7 +126,7 @@ JOIN roomtype_table r ON e.id_roomtype = r.id_roomtype
 			<input type="text" name="room#" value="<?php echo $room_number; ?>"> <br>
 
 			Room type: <br>
-			<select name="roomT" required> <?php echo $optionsRoomtype?> </select>
+			<select name="roomT" required> <?php echo $roomtype_ops?> </select>
 			<!---
 				<input type="text" name="roomT" value="<?php //echo $ROOMTYPE; ?>" required> <br>
 			-->

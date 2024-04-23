@@ -7,8 +7,8 @@ include(ROOT_PATH.'back\\config.php');
 #$absolutePath = $_SERVER['DOCUMENT_ROOT'] . '../../back/create/config.php'
 #include $absolutePath;
 include "back/config.php";
-echo getcwd();
-echo dirname(realpath(__FILE__));
+//echo getcwd();
+//echo dirname(realpath(__FILE__));
 ?>
 
 
@@ -21,13 +21,20 @@ echo dirname(realpath(__FILE__));
 			<a href="front/read/establishment-portal.php">View List</a>&nbsp;
 			<a href="front/create/establishment-create.php">Create new</a><br>
 
-		Employee: <a href="front/read/employee-portal.php">Here</a> &nbsp;<a href="front/create/employee-create.php">Create new</a><br>
+		Employee:
+			<a href="front/read/employee-portal.php">View List</a>&nbsp;
+			<a href="front/create/employee-create.php">Create new</a><br>
 
-		Student: <a href="front/read/students-portal.php">Here</a> &nbsp;<a href="front/create/students-create.php">Create new</a><br>
+		Student:
+			<a href="front/read/student-portal.php">View List(exception)</a> <br>
 
-		Course: <a href="front/read/course-portal.php">Here</a> &nbsp;<a href="front/create/course-create.php">Create new</a><br>
+		Course:
+			<a href="front/read/course-portal.php">View List</a>&nbsp;
+			<a href="front/create/course-create.php">Create new</a><br>
 
-		Subject: <a href="front/read/subject-lms.php">Here</a> &nbsp;<a href="front/create/subject-create.php">Create new</a><br>
+		Subject:
+			<a href="front/read/subject-portal.php">View List</a>&nbsp;
+			<a href="front/create/subject-create.php">Create new</a><br>
 		<br>
 </body>
 

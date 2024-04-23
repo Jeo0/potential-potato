@@ -1,3 +1,30 @@
+/* 
+ * (in sequence) Rule in the order of which tables needs to be inserted first 
+ * 1. building_table
+ * 		- referenced by establishment_table AND department_table
+ * 2. roomtype_table
+ * 		- referenced by establishment_table
+ * 3. subject_table
+ * 		- referenced by subjectinfo_table
+ * 4. employee_position_table
+ * 		- referenced by	employee_info_table
+ * 5. section_table
+ *		- referenced by timeandwhere_table 	AND student_table
+ * 6|7. courses_table AND student_birthday_table
+ * 		- referenced by student_table
+ *
+ * 
+ * The remaining tables are subsequently populated after the prime 7. 
+ * The remaining tables can be inserted in any order:
+ * 	- department_table
+ * 	- establishment_table
+ * 	- employee_info_table
+ * 	- timeandwhere_table
+ * 	- subjectinfo_table
+ * 	- student_name_table
+ * 	- student_table
+ */
+
 
 -- establishment 
 create database test1;
@@ -31,34 +58,16 @@ create table establishment_table(
 
 create table subject_table(
 	id_subject 	int 	primary key	auto_increment,
- 	subject_name	varchar(15) 
+ 	subject_name	varchar(15) unique
 );
 
-create table section_table (
-	id_section 	int	primary key	auto_increment,
-	sectionname	char(5),
-
-	id_employee	int
-	-- constraint fk_section	foreign key (id_employee)	references	employee_info_table(id_employee) 
-
-);
-
-
-create table timeandwhere_table(
-	id_timeandwhere	int	primary key	auto_increment,
-	time	time,
-	id_establishment	int,
-	id_section			int,
-	foreign key	(id_establishment)	references	establishment_table(id_establishment) ,
-	foreign key	(id_section)		references	section_table(id_section) 
-);
 
 -- lawrence, costa
 -- employee 
 
 CREATE TABLE department_table (
     id_department INT PRIMARY KEY,
-    departmentname VARCHAR(255) NOT NULL,
+    departmentname VARCHAR(255) NOT NULL,		-- this cannot be unique as many department may stem from 
     id_building INT,
     foreign key	(id_building)	references	building_table(id_building) 
 );
@@ -67,9 +76,7 @@ CREATE TABLE department_table (
 
 CREATE TABLE employee_position_table (
     id_position 	INT PRIMARY KEY,
-    positionname	VARCHAR(30) NOT NULL,
-	id_employee		int
-    -- FOREIGN KEY (id_position) REFERENCES `employee_position_table`(id_position);
+    positionname	VARCHAR(30) NOT NULL unique
 );
 
 
@@ -87,10 +94,41 @@ CREATE TABLE employee_info_table (
 
     id_position INT,
     id_department INT,
-    -- constraint fk_employee	foreign key (id_employee)	references employee_info_table(id_employee); 
+	FOREIGN KEY (id_position) REFERENCES `employee_position_table`(id_position),
     FOREIGN KEY (id_department) REFERENCES `department_table`(id_department) 
 ); 
 
+
+create table section_table (
+	id_section 	int	primary key	auto_increment,
+	sectionname	char(5)	unique
+
+
+);
+
+
+create table timeandwhere_table(
+	id_timeandwhere	int	primary key	auto_increment,
+	time	time,
+	id_establishment	int,
+	id_section			int,
+	foreign key	(id_establishment)	references	establishment_table(id_establishment) ,
+	foreign key	(id_section)		references	section_table(id_section) 
+);
+
+create table courses_table(
+	id_course	int primary key	auto_increment,
+	coursename	varchar(30) unique
+
+);
+
+
+create table student_birthday_table(
+	id_birthday	int	primary key	auto_increment,
+	birthday	date	not null	unique,
+	age			int		not null	unique
+
+);
 create table student_table (
 	id_student	int primary key auto_increment,
 	password	varchar(50),
@@ -101,9 +139,9 @@ create table student_table (
 	id_course	int,
 	id_section	int,
 	id_birthday	int,
-	foreign key	(id_section)	references	section_table(id_section) 
-	-- foreign key (id_course)		references 	courses_table(id_course) 
-	-- foreign key (id_birthday)	references	student_birthday_table(id_birthday) 
+	foreign key	(id_section)	references	section_table(id_section) ,
+	foreign key (id_birthday)	references	student_birthday_table(id_birthday) ,
+	foreign key (id_course)		references 	courses_table(id_course) 
 );
 
 
@@ -113,23 +151,11 @@ create table subjectinfo_table(
 	id_subject		int,
  	id_employee		int,
 	id_timeandwhere	int,
-	id_student		int,
 	foreign key	(id_subject)	references	subject_table(id_subject) ,
 	foreign key	(id_employee)	references employee_info_table(id_employee) ,
- 	foreign key (id_timeandwhere) 	references timeandwhere_table(id_timeandwhere) ,
- 	foreign key (id_student) 	references student_table(id_student) 
-
+ 	foreign key (id_timeandwhere) 	references timeandwhere_table(id_timeandwhere) 
 );
  
- 
-
-
-
-create table courses_table(
-	id_course	int primary key	auto_increment,
-	coursename	varchar(30)
-
-);
 create table student_name_table(
 	id_student	int	primary key	auto_increment,
 	firstname	varchar(20)	not null,
@@ -138,33 +164,6 @@ create table student_name_table(
 
 	foreign key (id_student) 	references student_table(id_student) 
 );
-
-create table student_birthday_table(
-	id_birthday	int	primary key	auto_increment,
-	birthday	date	not null,
-	age			int		not null,
-
-	id_student 	int,
-	foreign key (id_student) 	references student_table(id_student) 
-);
-
-
-
-
-
-alter table section_table
-add constraint fk_section	foreign key (id_employee)	references	employee_info_table(id_employee) ;
-alter table employee_position_table
-add constraint fk_employee	foreign key (id_employee)	references employee_info_table(id_employee) ;
-
-alter table employee_info_table
-add     FOREIGN KEY (id_position) REFERENCES `employee_position_table`(id_position) ;
-
-alter table student_table
-add foreign key (id_birthday)	references	student_birthday_table(id_birthday) ;
-
-alter table student_table
-add foreign key (id_course)		references 	courses_table(id_course) ;
 
 
 

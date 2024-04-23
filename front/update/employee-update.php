@@ -1,5 +1,5 @@
 <?php
-include "config.php";
+include "../../back/config.php";
 
 if (isset($_POST['update'])) {
     $employee_id = $_POST['employee_id'];
